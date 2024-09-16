@@ -1,118 +1,124 @@
-package com.example.calculapp;
+package com.example.calculapp
 
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.TextView;
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.Insets
+import androidx.core.view.OnApplyWindowInsetsListener
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
-public class MainActivity extends AppCompatActivity {
-    private StringBuilder firstNumber;
-    private String secondNumber;
+class MainActivity : AppCompatActivity() {
+    private var firstNumber: StringBuilder? = null
+    private val secondNumber: StringBuilder? = null
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        TextView textView = findViewById(R.id.textView);
-        Button button_0 = findViewById(R.id.button_0);
-        button_0.setOnClickListener(view -> {
+    protected override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        ViewCompat.setOnApplyWindowInsetsListener(
+            findViewById(R.id.main),
+            OnApplyWindowInsetsListener { v: View, insets: WindowInsetsCompat ->
+                val systemBars: Insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+                insets
+            })
+        val textView: TextView = findViewById(R.id.textView)
+        val button0: Button = findViewById(R.id.button_0)
+        button0.setOnClickListener {
             if (firstNumber != null) {
-                firstNumber.append("0");
-            textView.setText(firstNumber.toString());
+                firstNumber!!.append("0")
+                textView.text = firstNumber.toString()
+            }
         }
-        });
-        Button button_1 = findViewById(R.id.button_1);
-        button_1.setOnClickListener(view -> {
-            if (firstNumber!=null){
-                firstNumber.append("1");
+        val button1: Button = findViewById(R.id.button_1)
+        button1.setOnClickListener {
+            if (firstNumber != null) {
+                firstNumber!!.append("1")
             } else {
-                firstNumber = new StringBuilder("1");
+                firstNumber = StringBuilder("1")
             }
-            textView.setText(firstNumber.toString());
-        });
-        Button button_2 = findViewById(R.id.button_2);
-        button_2.setOnClickListener(view -> {
-            if (firstNumber!=null){
-                firstNumber.append("2");
+            textView.text = firstNumber.toString()
+        }
+        val button2: Button = findViewById(R.id.button_2)
+        button2.setOnClickListener {
+            if (firstNumber != null) {
+                firstNumber!!.append("2")
             } else {
-                firstNumber = new StringBuilder("2");
+                firstNumber = StringBuilder("2")
             }
-            textView.setText(firstNumber.toString());
-        });
-        Button button_3 = findViewById(R.id.button_3);
-        button_3.setOnClickListener(view -> {
-            if (firstNumber!=null){
-                firstNumber.append("3");
+            textView.text = firstNumber.toString()
+        }
+        val button3: Button = findViewById(R.id.button_3)
+        button3.setOnClickListener {
+            if (firstNumber != null) {
+                firstNumber!!.append("3")
             } else {
-                firstNumber = new StringBuilder("3");
+                firstNumber = StringBuilder("3")
             }
-            textView.setText(firstNumber.toString());
-        });
-        Button button_4 = findViewById(R.id.button_4);
-        button_4.setOnClickListener(view -> {
-            if (firstNumber!=null){
-                firstNumber.append("4");
+            textView.text = firstNumber.toString()
+        }
+        val button4: Button = findViewById(R.id.button_4)
+        button4.setOnClickListener {
+            if (firstNumber != null) {
+                firstNumber!!.append("4")
             } else {
-                firstNumber = new StringBuilder("4");
+                firstNumber = StringBuilder("4")
             }
-            textView.setText(firstNumber.toString());
-        });
-        Button button_5 = findViewById(R.id.button_5);
-        button_5.setOnClickListener(view -> {
-            if (firstNumber!=null){
-                firstNumber.append("5");
+            textView.text = firstNumber.toString()
+        }
+        val button5: Button = findViewById(R.id.button_5)
+        button5.setOnClickListener {
+            if (firstNumber != null) {
+                firstNumber!!.append("5")
             } else {
-                firstNumber = new StringBuilder("5");
+                firstNumber = StringBuilder("5")
             }
-            textView.setText(firstNumber.toString());
-        });
-        Button button_6 = findViewById(R.id.button_6);
-        button_6.setOnClickListener(view -> {
-            if (firstNumber!=null){
-                firstNumber.append("6");
+            textView.text = firstNumber.toString()
+        }
+        val button6: Button = findViewById(R.id.button_6)
+        button6.setOnClickListener {
+            if (firstNumber != null) {
+                firstNumber!!.append("6")
             } else {
-                firstNumber = new StringBuilder("6");
+                firstNumber = StringBuilder("6")
             }
-            textView.setText(firstNumber.toString());
-        });
-        Button button_7 = findViewById(R.id.button_7);
-        button_7.setOnClickListener(view -> {
-            if (firstNumber!=null){
-                firstNumber.append("7");
+            textView.text = firstNumber.toString()
+        }
+        val button7: Button = findViewById(R.id.button_7)
+        button7.setOnClickListener {
+            if (firstNumber != null) {
+                firstNumber!!.append("7")
             } else {
-                firstNumber = new StringBuilder("7");
+                firstNumber = StringBuilder("7")
             }
-            textView.setText(firstNumber.toString());
-        });
-        Button button_8 = findViewById(R.id.button_8);
-        button_8.setOnClickListener(view -> {
-            if (firstNumber!=null){
-                firstNumber.append("8");
+            textView.text = firstNumber.toString()
+        }
+        val button8: Button = findViewById(R.id.button_8)
+        button8.setOnClickListener {
+            if (firstNumber != null) {
+                firstNumber!!.append("8")
             } else {
-                firstNumber = new StringBuilder("8");
+                firstNumber = StringBuilder("8")
             }
-            textView.setText(firstNumber.toString());
-        });
-        Button button_9 = findViewById(R.id.button_9);
-        button_9.setOnClickListener(view -> {
-            if (firstNumber!=null){
-                firstNumber.append("9");
+            textView.text = firstNumber.toString()
+        }
+        val button9: Button = findViewById(R.id.button_9)
+        button9.setOnClickListener {
+            if (firstNumber != null) {
+                firstNumber!!.append("9")
             } else {
-                firstNumber = new StringBuilder("9");
+                firstNumber = StringBuilder("9")
             }
-            textView.setText(firstNumber.toString());
-        });
+            textView.text = firstNumber.toString()
+        }
+        val buttonAC: Button = findViewById(R.id.buttonAC)
+        buttonAC.setOnClickListener {
+            firstNumber = null
+            secondNumber = null
+            textView.text = "0"
+        }
     }
 }
