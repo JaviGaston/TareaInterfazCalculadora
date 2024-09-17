@@ -158,7 +158,6 @@ class MainActivity : AppCompatActivity() {
                         firstNumber = null
                         textView.text = result.toString()
                     }
-
                     "-" -> {
                         result -= firstNumber.toString().toDouble()
                         firstNumber = null
