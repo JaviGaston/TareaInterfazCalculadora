@@ -1,30 +1,31 @@
 package com.example.calculapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.Insets
-import androidx.core.view.OnApplyWindowInsetsListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     private var firstNumber: StringBuilder? = null
-    private val secondNumber: StringBuilder? = null
+    private var result: Double = 0.0
+    private var operation: String? = null
 
-    protected override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(
-            findViewById(R.id.main),
-            OnApplyWindowInsetsListener { v: View, insets: WindowInsetsCompat ->
-                val systemBars: Insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-                insets
-            })
+            findViewById(R.id.main)
+        ) { v: View, insets: WindowInsetsCompat ->
+            val systemBars: Insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
         val textView: TextView = findViewById(R.id.textView)
         val button0: Button = findViewById(R.id.button_0)
         button0.setOnClickListener {
@@ -114,11 +115,64 @@ class MainActivity : AppCompatActivity() {
             }
             textView.text = firstNumber.toString()
         }
+        val buttonDot: Button = findViewById(R.id.buttonDot)
+        buttonDot.setOnClickListener {
+            if (firstNumber != null) {
+                firstNumber!!.append(".")
+            } else {
+                firstNumber = StringBuilder("0.")
+            }
+            textView.text = firstNumber.toString()
+        }
         val buttonAC: Button = findViewById(R.id.buttonAC)
         buttonAC.setOnClickListener {
             firstNumber = null
-            secondNumber = null
+            result = 0.0
             textView.text = "0"
+        }
+        val buttonAdd: Button = findViewById(R.id.buttonAdd)
+        buttonAdd.setOnClickListener{
+            if (firstNumber == null){
+                firstNumber = StringBuilder("0")
+            }
+            result += firstNumber.toString().toDouble()
+            firstNumber = null
+            operation = "+"
+        }
+        val buttonSustract: Button = findViewById(R.id.buttonSustract)
+        buttonSustract.setOnClickListener{
+            if (result == 0.0){
+                result += firstNumber.toString().toDouble()
+            } else {
+                result -= result.toString().toDouble()
+            }
+            firstNumber = null
+            operation = "-"
+        }
+        val buttonEquals: Button = findViewById(R.id.buttonEquals)
+        buttonEquals.setOnClickListener{
+            if(firstNumber != null) {
+                when (operation) {
+                    "+" -> {
+                        result += firstNumber.toString().toDouble()
+                        firstNumber = null
+                        textView.text = result.toString()
+                    }
+
+                    "-" -> {
+                        result -= firstNumber.toString().toDouble()
+                        firstNumber = null
+                        textView.text = result.toString()
+                    }
+                    null -> textView.text = firstNumber.toString()
+                }
+            } else {
+                if(result == (result - (result%1))){
+                    textView.text = result.toInt().toString()
+                } else {
+                textView.text = result.toString()
+                }
+            }
         }
     }
 }
