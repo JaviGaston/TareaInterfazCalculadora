@@ -141,13 +141,21 @@ class MainActivity : AppCompatActivity() {
         }
         val buttonSustract: Button = findViewById(R.id.buttonSustract)
         buttonSustract.setOnClickListener{
-            if (result == 0.0){
-                result += firstNumber.toString().toDouble()
-            } else {
-                result -= result.toString().toDouble()
+            if (firstNumber == null){
+                firstNumber = StringBuilder("0")
             }
+            result += firstNumber.toString().toDouble()
             firstNumber = null
             operation = "-"
+        }
+        val buttonTimes: Button = findViewById(R.id.buttonTimes)
+        buttonTimes.setOnClickListener{
+            if (firstNumber == null){
+                firstNumber = StringBuilder("0")
+            }
+            result += firstNumber.toString().toDouble()
+            firstNumber = null
+            operation = "*"
         }
         val buttonEquals: Button = findViewById(R.id.buttonEquals)
         buttonEquals.setOnClickListener{
@@ -158,20 +166,27 @@ class MainActivity : AppCompatActivity() {
                         firstNumber = null
                         textView.text = result.toString()
                     }
+
                     "-" -> {
                         result -= firstNumber.toString().toDouble()
                         firstNumber = null
                         textView.text = result.toString()
                     }
+
+                    "*" -> {
+                        result *= firstNumber.toString().toDouble()
+                        firstNumber = null
+                        textView.text = result.toString()
+                    }
+
                     null -> textView.text = firstNumber.toString()
                 }
-            } else {
+            }
                 if(result == (result - (result%1))){
-                    textView.text = result.toInt().toString()
+                    textView.text = (result.toInt()).toString()
                 } else {
                 textView.text = result.toString()
                 }
-            }
         }
     }
 }
