@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private var firstNumber: StringBuilder? = null
     private var result: Double = 0.0
     private var operation: String? = null
+    private var isDecimal : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +32,10 @@ class MainActivity : AppCompatActivity() {
         button0.setOnClickListener {
             if (firstNumber != null) {
                 firstNumber!!.append("0")
-                textView.text = firstNumber.toString()
+            } else {
+                firstNumber = StringBuilder("0")
             }
+            textView.text = firstNumber.toString()
         }
         val button1: Button = findViewById(R.id.button_1)
         button1.setOnClickListener {
@@ -117,12 +120,15 @@ class MainActivity : AppCompatActivity() {
         }
         val buttonDot: Button = findViewById(R.id.buttonDot)
         buttonDot.setOnClickListener {
-            if (firstNumber != null) {
+            if(!isDecimal){
+                if (firstNumber != null) {
                 firstNumber!!.append(".")
-            } else {
+                } else {
                 firstNumber = StringBuilder("0.")
+                }
+                isDecimal = true
+                textView.text = firstNumber.toString()
             }
-            textView.text = firstNumber.toString()
         }
         val buttonAC: Button = findViewById(R.id.buttonAC)
         buttonAC.setOnClickListener {
@@ -138,6 +144,7 @@ class MainActivity : AppCompatActivity() {
             result += firstNumber.toString().toDouble()
             firstNumber = null
             operation = "+"
+            isDecimal = false
         }
         val buttonSustract: Button = findViewById(R.id.buttonSustract)
         buttonSustract.setOnClickListener{
@@ -147,6 +154,7 @@ class MainActivity : AppCompatActivity() {
             result += firstNumber.toString().toDouble()
             firstNumber = null
             operation = "-"
+            isDecimal = false
         }
         val buttonTimes: Button = findViewById(R.id.buttonTimes)
         buttonTimes.setOnClickListener{
@@ -156,6 +164,17 @@ class MainActivity : AppCompatActivity() {
             result += firstNumber.toString().toDouble()
             firstNumber = null
             operation = "*"
+            isDecimal = false
+        }
+        val buttonDivide: Button = findViewById(R.id.buttonDivide)
+        buttonDivide.setOnClickListener{
+            if (firstNumber == null){
+                firstNumber = StringBuilder("0")
+            }
+            result += firstNumber.toString().toDouble()
+            firstNumber = null
+            operation = "/"
+            isDecimal = false
         }
         val buttonEquals: Button = findViewById(R.id.buttonEquals)
         buttonEquals.setOnClickListener{
@@ -179,8 +198,15 @@ class MainActivity : AppCompatActivity() {
                         textView.text = result.toString()
                     }
 
+                    "/" -> {
+                        result /= firstNumber.toString().toDouble()
+                        firstNumber = null
+                        textView.text = result.toString()
+                    }
+
                     null -> textView.text = firstNumber.toString()
                 }
+                isDecimal = false
             }
                 if(result == (result - (result%1))){
                     textView.text = (result.toInt()).toString()
