@@ -1,7 +1,6 @@
 package com.example.calculapp
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -10,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
     private var firstNumber: StringBuilder? = null
@@ -176,6 +176,32 @@ class MainActivity : AppCompatActivity() {
             operation = "/"
             isDecimal = false
         }
+        val buttonPi: Button = findViewById(R.id.buttonPi)
+        buttonPi.setOnClickListener{
+            if (isDecimal == false){
+                if (firstNumber != null) {
+                    firstNumber!!.append("3.141592653")
+                } else {
+                    firstNumber = StringBuilder("3.141592653")
+                }
+                isDecimal = true
+                textView.text = firstNumber.toString()
+            }
+        }
+
+        val buttonSqrt: Button = findViewById(R.id.buttonSqrt)
+        buttonSqrt.setOnClickListener{
+            if (firstNumber == null){
+                firstNumber = StringBuilder("0")
+            }
+            result =(firstNumber.toString().toDouble().pow(0.5))
+                if(result == (result - (result%1))){
+                    textView.text = (result.toInt()).toString()
+                } else {
+                    textView.text = result.toString()
+                }
+        }
+
         val buttonEquals: Button = findViewById(R.id.buttonEquals)
         buttonEquals.setOnClickListener{
             if(firstNumber != null) {
@@ -183,28 +209,22 @@ class MainActivity : AppCompatActivity() {
                     "+" -> {
                         result += firstNumber.toString().toDouble()
                         firstNumber = null
-                        textView.text = result.toString()
                     }
 
                     "-" -> {
                         result -= firstNumber.toString().toDouble()
                         firstNumber = null
-                        textView.text = result.toString()
                     }
 
                     "*" -> {
                         result *= firstNumber.toString().toDouble()
                         firstNumber = null
-                        textView.text = result.toString()
                     }
 
                     "/" -> {
                         result /= firstNumber.toString().toDouble()
                         firstNumber = null
-                        textView.text = result.toString()
                     }
-
-                    null -> textView.text = firstNumber.toString()
                 }
                 isDecimal = false
             }
