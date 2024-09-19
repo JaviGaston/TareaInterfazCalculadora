@@ -17,4 +17,7 @@
     <string name="equals">=</string>
     <string name="add">+</string>
     <string name="ac">AC</string>
+    <string name="pi">π</string>
+    <string name="sqrt">√</string>
+    <string name="factorial">!</string>
 </resources>
