@@ -178,15 +178,11 @@ class MainActivity : AppCompatActivity() {
         }
         val buttonPi: Button = findViewById(R.id.buttonPi)
         buttonPi.setOnClickListener{
-            if (isDecimal == false){
-                if (firstNumber != null) {
-                    firstNumber!!.append("3.141592653")
-                } else {
+            if (!isDecimal && firstNumber == null){
                     firstNumber = StringBuilder("3.141592653")
                 }
                 isDecimal = true
                 textView.text = firstNumber.toString()
-            }
         }
 
         val buttonSqrt: Button = findViewById(R.id.buttonSqrt)
@@ -200,6 +196,23 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     textView.text = result.toString()
                 }
+        }
+
+        val buttonFactorial: Button = findViewById(R.id.buttonExclamation)
+        buttonFactorial.setOnClickListener {
+            if(isDecimal){
+                textView.text = ("Error")
+            }else if (firstNumber ==null || firstNumber.toString()=="0"){
+                textView.text = "1"
+            } else {
+                result++
+                for(i in 1..firstNumber.toString().toInt()){
+                    result*=i
+                }
+                textView.text=result.toInt().toString()
+                firstNumber = StringBuilder(result.toInt().toString())
+                result = 0.0
+            }
         }
 
         val buttonEquals: Button = findViewById(R.id.buttonEquals)
@@ -230,9 +243,13 @@ class MainActivity : AppCompatActivity() {
             }
                 if(result == (result - (result%1))){
                     textView.text = (result.toInt()).toString()
+                    firstNumber = StringBuilder(result.toInt().toString())
                 } else {
                 textView.text = result.toString()
+                    firstNumber = StringBuilder(result.toString())
+                    isDecimal = true
                 }
+            operation = null
         }
     }
 }
