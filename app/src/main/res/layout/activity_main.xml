@@ -313,8 +313,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="321dp"
-        android:layout_height="184dp"
+        android:layout_width="329dp"
+        android:layout_height="111dp"
         android:layout_marginTop="280dp"
         android:text="@string/_0"
         android:textAlignment="textEnd"
@@ -323,7 +323,6 @@
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toTopOf="@+id/button_8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

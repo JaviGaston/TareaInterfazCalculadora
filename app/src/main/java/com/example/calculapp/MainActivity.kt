@@ -1,6 +1,7 @@
 package com.example.calculapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private var result: Double = 0.0
     private var operation: String? = null
     private var isDecimal : Boolean = false
+    private var contador : Int = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -250,6 +252,30 @@ class MainActivity : AppCompatActivity() {
                     isDecimal = true
                 }
             operation = null
+        }
+    }
+    override fun onResume(){
+        super.onResume()
+        Log.d("Debug","onResume")
+        val text:TextView = findViewById(R.id.textView)
+        text.text = contador.toString()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        // Save the user's current game state.
+        outState?.run {
+            putInt("contador", contador)
+        }
+        // Always call the superclass so it can save the view hierarchy.
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        // Always call the superclass so it can restore the view hierarchy.
+        super.onRestoreInstanceState(savedInstanceState)
+        // Restore state members from saved instance.
+        savedInstanceState?.run {
+            contador = savedInstanceState.getInt("contador")
         }
     }
 }
