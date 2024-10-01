@@ -1,4 +1,4 @@
-package com.example.calculapp;
+package com.example.tareainterfazcalculadora;
 
 import org.junit.Test;
 
