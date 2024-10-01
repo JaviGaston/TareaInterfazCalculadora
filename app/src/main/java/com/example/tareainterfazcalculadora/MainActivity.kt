@@ -21,6 +21,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -41,6 +43,17 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun Orientation() {
+    val configuration = LocalConfiguration.current
+
+    if (configuration.orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE) {
+        Landscape()
+    } else {
+        CalculAppInterface()
+    }
+}
+
+@Composable
 fun CalculAppInterface() {
     Column(
         modifier = Modifier
@@ -55,53 +68,57 @@ fun CalculAppInterface() {
         Spacer(modifier = Modifier.height(16.dp))
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = "7", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "8", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "9", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "/", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "7", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "8", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "9", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "/", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = "4", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "5", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "6", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "x", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "4", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "5", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "6", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "x", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = "1", modifier = Modifier.weight(1f), backgroundColor = Color.Blue)
-            CalculatorButton(text = "2", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "3", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "-", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "1", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "2", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "3", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "-", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = ".", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "0", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "√ ", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "+", modifier = Modifier.weight(1f))
+            CalculatorButton(text = ".", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text = "0", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "√ ", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text = "+", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = "AC", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "π", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "! ", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "=", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "AC", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text = "π", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text = "! ", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text = "=", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
         }
     }
 }
 @Composable
+fun Landscape(){
+
+}
+@Composable
 fun CalculatorButton(text: String, modifier: Modifier = Modifier, backgroundColor: Color = Color.Gray) {
     Button(
-        onClick = { /* Acción del botón */ },
+        onClick = { },
         shape = CutCornerShape(0.dp),
         colors = ButtonDefaults.buttonColors(containerColor = backgroundColor),
         modifier = modifier
