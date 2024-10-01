@@ -4,18 +4,18 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -46,7 +46,7 @@ fun CalculAppInterface() {
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        verticalArrangement = Arrangement.Top,
+        verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
@@ -73,7 +73,7 @@ fun CalculAppInterface() {
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = "1", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "1", modifier = Modifier.weight(1f), backgroundColor = Color.Blue)
             CalculatorButton(text = "2", modifier = Modifier.weight(1f))
             CalculatorButton(text = "3", modifier = Modifier.weight(1f))
             CalculatorButton(text = "-", modifier = Modifier.weight(1f))
@@ -99,11 +99,12 @@ fun CalculAppInterface() {
     }
 }
 @Composable
-fun CalculatorButton(text: String, modifier: Modifier = Modifier) {
+fun CalculatorButton(text: String, modifier: Modifier = Modifier, backgroundColor: Color = Color.Gray) {
     Button(
         onClick = { /* Acción del botón */ },
+        shape = CutCornerShape(0.dp),
+        colors = ButtonDefaults.buttonColors(containerColor = backgroundColor),
         modifier = modifier
-            .aspectRatio(1f)
             .padding(4.dp)
     ) {
         Text(text = text, fontSize = 20.sp, fontWeight = FontWeight.Bold)
@@ -116,13 +117,11 @@ fun Display(text: String) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.DarkGray)
             .padding(16.dp)
     ) {
         Text(
             text = text,
             fontSize = 36.sp,
-            color = Color.White,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.End,
             modifier = Modifier
