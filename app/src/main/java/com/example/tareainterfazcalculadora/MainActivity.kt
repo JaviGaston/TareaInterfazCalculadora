@@ -1,4 +1,4 @@
-package com.example.calculapp
+package com.example.tareainterfazcalculadora
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -49,12 +49,11 @@ fun CalculAppInterface() {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Pantalla de la calculadora
+
         Display( text = "0")
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Fila 1 de botones
         Row(modifier = Modifier.fillMaxWidth()) {
             CalculatorButton(text = "7", modifier = Modifier.weight(1f))
             CalculatorButton(text = "8", modifier = Modifier.weight(1f))
@@ -62,19 +61,17 @@ fun CalculAppInterface() {
             CalculatorButton(text = "/", modifier = Modifier.weight(1f))
         }
 
-        Spacer(modifier = Modifier.height(8.dp)) // Espacio entre filas
+        Spacer(modifier = Modifier.height(8.dp))
 
-        // Fila 2 de botones
         Row(modifier = Modifier.fillMaxWidth()) {
             CalculatorButton(text = "4", modifier = Modifier.weight(1f))
             CalculatorButton(text = "5", modifier = Modifier.weight(1f))
             CalculatorButton(text = "6", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "*", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "x", modifier = Modifier.weight(1f))
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Fila 3 de botones
         Row(modifier = Modifier.fillMaxWidth()) {
             CalculatorButton(text = "1", modifier = Modifier.weight(1f))
             CalculatorButton(text = "2", modifier = Modifier.weight(1f))
@@ -84,12 +81,20 @@ fun CalculAppInterface() {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Fila 4 de botones
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = "0", modifier = Modifier.weight(1f))
             CalculatorButton(text = ".", modifier = Modifier.weight(1f))
-            CalculatorButton(text = "=", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "0", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "√ ", modifier = Modifier.weight(1f))
             CalculatorButton(text = "+", modifier = Modifier.weight(1f))
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Row(modifier = Modifier.fillMaxWidth()) {
+            CalculatorButton(text = "AC", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "π", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "! ", modifier = Modifier.weight(1f))
+            CalculatorButton(text = "=", modifier = Modifier.weight(1f))
         }
     }
 }
@@ -107,7 +112,7 @@ fun CalculatorButton(text: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun Display(text: String) {
-    // Pantalla de visualización
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
