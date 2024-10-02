@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TareaInterfazCalculadoraTheme {
-                CalculAppInterface()
+                Orientation()
             }
         }
     }
@@ -113,7 +114,46 @@ fun CalculAppInterface() {
 }
 @Composable
 fun Landscape(){
+    Row(modifier = Modifier
+        .fillMaxSize()
+        .padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceEvenly){
 
+        Column(modifier = Modifier.weight(1f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally){
+            CalculatorButton(text="0", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="5", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="π", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text=".", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+        }
+        Column(modifier = Modifier.weight(1f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally){
+            CalculatorButton(text="1", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="6", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="+", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text="!", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+        }
+        Column(modifier = Modifier.weight(1f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally){
+            CalculatorButton(text="2", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="7", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="-", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text="√", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+        }
+        Column(modifier = Modifier.weight(1f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally){
+            CalculatorButton(text="3", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="8", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="x", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text="AC", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+        }
+        Column(modifier = Modifier.weight(1f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally){
+            CalculatorButton(text="4", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="9", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="/", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text="=", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+        }
+        Column(modifier = Modifier.weight(2f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center){
+            Display( text = "0")
+        }
+    }
 }
 @Composable
 fun CalculatorButton(text: String, modifier: Modifier = Modifier, backgroundColor: Color = Color.Gray) {
@@ -122,7 +162,7 @@ fun CalculatorButton(text: String, modifier: Modifier = Modifier, backgroundColo
         shape = CutCornerShape(0.dp),
         colors = ButtonDefaults.buttonColors(containerColor = backgroundColor),
         modifier = modifier
-            .padding(4.dp)
+            .padding(1.dp)
     ) {
         Text(text = text, fontSize = 20.sp, fontWeight = FontWeight.Bold)
     }
@@ -152,6 +192,6 @@ fun Display(text: String) {
 @Composable
 fun CalculAppInterfacePreview() {
     TareaInterfazCalculadoraTheme {
-        CalculAppInterface()
+        Landscape()
     }
 }
