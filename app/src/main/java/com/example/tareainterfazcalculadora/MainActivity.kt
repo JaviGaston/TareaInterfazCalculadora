@@ -120,37 +120,37 @@ fun Landscape(){
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly){
 
-        Column(modifier = Modifier.weight(1f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally){
-            CalculatorButton(text="0", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="5", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="π", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text=".", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+        Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
+            CalculatorButton(text="0", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="5", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="π", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text=".", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
         }
-        Column(modifier = Modifier.weight(1f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally){
-            CalculatorButton(text="1", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="6", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="+", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text="!", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+        Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
+            CalculatorButton(text="1", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="6", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="+", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text="!", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
         }
-        Column(modifier = Modifier.weight(1f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally){
-            CalculatorButton(text="2", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="7", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="-", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text="√", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+        Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
+            CalculatorButton(text="2", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="7", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="-", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text="√", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
         }
-        Column(modifier = Modifier.weight(1f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally){
-            CalculatorButton(text="3", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="8", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="x", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text="AC", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+        Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
+            CalculatorButton(text="3", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="8", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="x", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text="AC", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
         }
-        Column(modifier = Modifier.weight(1f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally){
-            CalculatorButton(text="4", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="9", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="/", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text="=", modifier = Modifier.weight(1f).fillMaxWidth(), backgroundColor = colorResource(id = R.color.azulclaro))
+        Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
+            CalculatorButton(text="4", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="9", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
+            CalculatorButton(text="/", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
+            CalculatorButton(text="=", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
         }
-        Column(modifier = Modifier.weight(2f).fillMaxHeight(),horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center){
+        Column(modifier = Modifier.weight(2f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center){
             Display( text = "0")
         }
     }
