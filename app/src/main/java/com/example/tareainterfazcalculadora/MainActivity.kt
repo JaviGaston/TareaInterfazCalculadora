@@ -1,7 +1,6 @@
 package com.example.tareainterfazcalculadora
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -253,12 +252,6 @@ class MainActivity : AppCompatActivity() {
                 }
             operation = null
         }
-    }
-    override fun onResume(){
-        super.onResume()
-        Log.d("Debug","onResume")
-        val text:TextView = findViewById(R.id.textView)
-        text.text = contador.toString()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
