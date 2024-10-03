@@ -64,56 +64,230 @@ fun CalculAppInterface() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Display( text = "0")
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            Text(
+                text = "0",
+                fontSize = 36.sp,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.End,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            )
+        }
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = "7", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "8", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "9", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "/", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "7", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "8", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "9", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "/", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }}
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "4", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "5", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "6", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "x", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = "4", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "5", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "6", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "x", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "1", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "2", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "3", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "-", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = "1", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "2", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "3", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "-", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = ".", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "0", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "√", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "+", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = ".", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text = "0", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "√ ", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text = "+", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
-        }
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Row(modifier = Modifier.fillMaxWidth()) {
-            CalculatorButton(text = "AC", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text = "π", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text = "! ", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text = "=", modifier = Modifier.weight(1f), backgroundColor = colorResource(id = R.color.azulclaro))
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "AC", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "π", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "!", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "=", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
         }
     }
 }
 @Composable
 fun Landscape(){
+    var numberText: StringBuilder = StringBuilder("0")
     Row(modifier = Modifier
         .fillMaxSize()
         .padding(16.dp),
@@ -121,72 +295,216 @@ fun Landscape(){
         horizontalArrangement = Arrangement.SpaceEvenly){
 
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
-            CalculatorButton(text="0", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="5", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="π", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text=".", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
+            Button(
+                onClick = {numberText = clickAction("0",numberText)},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "0", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "5", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "π", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = ".", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
         }
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
-            CalculatorButton(text="1", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="6", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="+", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text="!", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "1", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "6", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "+", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "!", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
         }
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
-            CalculatorButton(text="2", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="7", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="-", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text="√", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
-        }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "2", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "7", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "-", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "√", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }}
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
-            CalculatorButton(text="3", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="8", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="x", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text="AC", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
-        }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "3", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "8", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "x", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "AC", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }}
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
-            CalculatorButton(text="4", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="9", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azul))
-            CalculatorButton(text="/", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
-            CalculatorButton(text="=", modifier = Modifier.weight(1f).fillMaxWidth().padding(7.dp), backgroundColor = colorResource(id = R.color.azulclaro))
-        }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "4", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "9", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "/", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            Button(
+                onClick = {},
+                shape = CutCornerShape(0.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
+                modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
+            )
+            {
+                Text(text = "=", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }}
         Column(modifier = Modifier.weight(2f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center){
-            Display( text = "0")
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            ) {
+                Text(
+                    text = "0",
+                    fontSize = 36.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.End,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                )
+            }
         }
     }
 }
-@Composable
-fun CalculatorButton(text: String, modifier: Modifier = Modifier, backgroundColor: Color = Color.Gray) {
-    Button(
-        onClick = { },
-        shape = CutCornerShape(0.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = backgroundColor),
-        modifier = modifier
-            .padding(1.dp)
-    ) {
-        Text(text = text, fontSize = 20.sp, fontWeight = FontWeight.Bold)
-    }
+
+fun clickAction(s: String, numberText: StringBuilder): StringBuilder {
+
 }
 
-@Composable
-fun Display(text: String) {
-
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-    ) {
-        Text(
-            text = text,
-            fontSize = 36.sp,
-            fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.End,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        )
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
