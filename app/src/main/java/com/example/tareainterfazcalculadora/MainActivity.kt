@@ -1,5 +1,7 @@
 package com.example.tareainterfazcalculadora
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -16,11 +18,22 @@ class MainActivity : AppCompatActivity() {
     private var result: Double = 0.0
     private var operation: String? = null
     private var isDecimal : Boolean = false
-    private var contador : Int = 0;
+    val SHARED_PREF = "com.example.app"
+    val COUNTER_KEY = "counter"
+    var counter = 0
+    lateinit var sharedP: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val textView: TextView = findViewById(R.id.textView)
+        val button0: Button = findViewById(R.id.button_0)
+        if (savedInstanceState != null) {
+            firstNumber = StringBuilder(savedInstanceState.getString("current_number", "0"))
+            textView.setText(firstNumber)
+        }
+        sharedP = getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE)
+        counter = sharedP.getInt(COUNTER_KEY, 0)
         ViewCompat.setOnApplyWindowInsetsListener(
             findViewById(R.id.main)
         ) { v: View, insets: WindowInsetsCompat ->
@@ -28,8 +41,6 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val textView: TextView = findViewById(R.id.textView)
-        val button0: Button = findViewById(R.id.button_0)
         button0.setOnClickListener {
             if (firstNumber != null) {
                 firstNumber!!.append("0")
@@ -254,21 +265,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun SaveData() {
+        val editor: SharedPreferences.Editor = sharedP.edit()
+        editor.putInt(COUNTER_KEY, counter)
+        editor.commit()
+    }
+
+    override fun onDestroy() {
+        SaveData()
+        super.onDestroy()
+    }
+
+    override fun onStop() {
+        SaveData()
+        super.onStop()
+    }
+
     override fun onSaveInstanceState(outState: Bundle) {
-        // Save the user's current game state.
-        outState?.run {
-            putInt("contador", contador)
-        }
-        // Always call the superclass so it can save the view hierarchy.
+        super.onSaveInstanceState(outState)
+        outState.putString("current_number", firstNumber.toString())
         super.onSaveInstanceState(outState)
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        // Always call the superclass so it can restore the view hierarchy.
-        super.onRestoreInstanceState(savedInstanceState)
-        // Restore state members from saved instance.
-        savedInstanceState?.run {
-            contador = savedInstanceState.getInt("contador")
-        }
-    }
 }
