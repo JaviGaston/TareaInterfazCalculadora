@@ -1,5 +1,6 @@
 package com.example.tareainterfazcalculadora
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -23,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -57,7 +59,8 @@ fun Orientation() {
 @Composable
 fun CalculAppInterface() {
     var numberText: StringBuilder = StringBuilder("0")
-    val screen = remember { mutableStateOf("0") }
+    val context = LocalContext.current
+    val screen = remember { mutableStateOf(getFromSharedPreferences(context, "display_number") ?: "0") }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -87,7 +90,8 @@ fun CalculAppInterface() {
         Row(modifier = Modifier.fillMaxWidth()) {
             Button(
                 onClick = {numberText = clickAction("7",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -97,7 +101,8 @@ fun CalculAppInterface() {
             }
             Button(
                 onClick = {numberText = clickAction("8",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -107,7 +112,8 @@ fun CalculAppInterface() {
             }
             Button(
                 onClick = {numberText = clickAction("9",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -130,7 +136,8 @@ fun CalculAppInterface() {
         Row(modifier = Modifier.fillMaxWidth()) {
             Button(
                 onClick = {numberText = clickAction("4",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -140,7 +147,8 @@ fun CalculAppInterface() {
             }
             Button(
                 onClick = {numberText = clickAction("5",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -150,7 +158,8 @@ fun CalculAppInterface() {
             }
             Button(
                 onClick = {numberText = clickAction("6",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -174,7 +183,8 @@ fun CalculAppInterface() {
         Row(modifier = Modifier.fillMaxWidth()) {
             Button(
                 onClick = {numberText = clickAction("1",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -184,7 +194,8 @@ fun CalculAppInterface() {
             }
             Button(
                 onClick = {numberText = clickAction("2",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -194,7 +205,8 @@ fun CalculAppInterface() {
             }
             Button(
                 onClick = {numberText = clickAction("3",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -227,7 +239,8 @@ fun CalculAppInterface() {
             }
             Button(
                 onClick = {numberText = clickAction("0",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -269,7 +282,8 @@ fun CalculAppInterface() {
             }
             Button(
                 onClick = {numberText = clickAction("π",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -300,8 +314,9 @@ fun CalculAppInterface() {
 }
 @Composable
 fun Landscape(){
+    val context = LocalContext.current
     var numberText: StringBuilder = StringBuilder("0")
-    val screen = remember { mutableStateOf("0") }
+    val screen = remember { mutableStateOf(getFromSharedPreferences(context, "display_number") ?: "0") }
     Row(modifier = Modifier
         .fillMaxSize()
         .padding(16.dp),
@@ -311,7 +326,8 @@ fun Landscape(){
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
             Button(
                 onClick = {numberText = clickAction("0",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -321,7 +337,8 @@ fun Landscape(){
             }
             Button(
                 onClick = {numberText = clickAction("5",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -331,7 +348,8 @@ fun Landscape(){
             }
             Button(
                 onClick = {numberText = clickAction("π",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -352,7 +370,8 @@ fun Landscape(){
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
             Button(
                 onClick = {numberText = clickAction("1",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -362,7 +381,8 @@ fun Landscape(){
             }
             Button(
                 onClick = {numberText = clickAction("6",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -392,7 +412,8 @@ fun Landscape(){
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
             Button(
                 onClick = {numberText = clickAction("2",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -402,7 +423,8 @@ fun Landscape(){
             }
             Button(
                 onClick = {numberText = clickAction("7",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -431,7 +453,8 @@ fun Landscape(){
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
             Button(
                 onClick = {numberText = clickAction("3",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -441,7 +464,8 @@ fun Landscape(){
             }
             Button(
                 onClick = {numberText = clickAction("8",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -470,7 +494,8 @@ fun Landscape(){
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
             Button(
                 onClick = {numberText = clickAction("4",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -480,7 +505,8 @@ fun Landscape(){
             }
             Button(
                 onClick = {numberText = clickAction("9",StringBuilder(screen.value))
-                    screen.value = numberText.toString()},
+                    screen.value = numberText.toString()
+                    saveToSharedPreferences(context, "display_number", numberText.toString())},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -532,6 +558,21 @@ fun clickAction(numberString: String, numberText: StringBuilder): StringBuilder 
         numberText.append(StringBuilder(numberString))
     return numberText
 }
+
+fun saveToSharedPreferences(context: Context, key: String, value: String) {
+    val sharedPreferences = context.getSharedPreferences("calculator_prefs", Context.MODE_PRIVATE)
+    with(sharedPreferences.edit()) {
+        putString(key, value)
+        apply()
+    }
+}
+
+fun getFromSharedPreferences(context: Context, key: String): String? {
+    val sharedPreferences = context.getSharedPreferences("calculator_prefs", Context.MODE_PRIVATE)
+    return sharedPreferences.getString(key, null)
+}
+
+
 
 
 @Preview(showBackground = true)
