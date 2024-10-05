@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,9 +18,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
@@ -56,6 +56,8 @@ fun Orientation() {
 
 @Composable
 fun CalculAppInterface() {
+    var numberText: StringBuilder = StringBuilder("0")
+    val screen = remember { mutableStateOf("0") }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -64,13 +66,13 @@ fun CalculAppInterface() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Box(
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
             Text(
-                text = "0",
+                text = screen.value,
                 fontSize = 36.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.End,
@@ -84,7 +86,8 @@ fun CalculAppInterface() {
 
         Row(modifier = Modifier.fillMaxWidth()) {
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("7",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -93,7 +96,8 @@ fun CalculAppInterface() {
                 Text(text = "7", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("8",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -102,7 +106,8 @@ fun CalculAppInterface() {
                 Text(text = "8", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("9",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -124,7 +129,8 @@ fun CalculAppInterface() {
 
         Row(modifier = Modifier.fillMaxWidth()) {
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("4",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -133,7 +139,8 @@ fun CalculAppInterface() {
                 Text(text = "4", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("5",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -142,7 +149,8 @@ fun CalculAppInterface() {
                 Text(text = "5", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("6",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -165,7 +173,8 @@ fun CalculAppInterface() {
 
         Row(modifier = Modifier.fillMaxWidth()) {
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("1",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -174,7 +183,8 @@ fun CalculAppInterface() {
                 Text(text = "1", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("2",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -183,7 +193,8 @@ fun CalculAppInterface() {
                 Text(text = "2", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("3",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -208,14 +219,15 @@ fun CalculAppInterface() {
             Button(
                 onClick = {},
                 shape = CutCornerShape(0.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
             )
             {
                 Text(text = ".", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("0",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -226,7 +238,7 @@ fun CalculAppInterface() {
             Button(
                 onClick = {},
                 shape = CutCornerShape(0.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
+                colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azulclaro)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
             )
             {
@@ -256,7 +268,8 @@ fun CalculAppInterface() {
                 Text(text = "AC", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("π",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -288,6 +301,7 @@ fun CalculAppInterface() {
 @Composable
 fun Landscape(){
     var numberText: StringBuilder = StringBuilder("0")
+    val screen = remember { mutableStateOf("0") }
     Row(modifier = Modifier
         .fillMaxSize()
         .padding(16.dp),
@@ -296,7 +310,8 @@ fun Landscape(){
 
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
             Button(
-                onClick = {numberText = clickAction("0",numberText)},
+                onClick = {numberText = clickAction("0",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -305,7 +320,8 @@ fun Landscape(){
                 Text(text = "0", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("5",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -314,7 +330,8 @@ fun Landscape(){
                 Text(text = "5", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("π",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -334,7 +351,8 @@ fun Landscape(){
         }
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("1",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -343,7 +361,8 @@ fun Landscape(){
                 Text(text = "1", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("6",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -372,7 +391,8 @@ fun Landscape(){
         }
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("2",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -381,7 +401,8 @@ fun Landscape(){
                 Text(text = "2", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("7",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -409,7 +430,8 @@ fun Landscape(){
             }}
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("3",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -418,7 +440,8 @@ fun Landscape(){
                 Text(text = "3", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("8",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -446,7 +469,8 @@ fun Landscape(){
             }}
         Column(modifier = Modifier.weight(1f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally){
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("4",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -455,7 +479,8 @@ fun Landscape(){
                 Text(text = "4", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }
             Button(
-                onClick = {},
+                onClick = {numberText = clickAction("9",StringBuilder(screen.value))
+                    screen.value = numberText.toString()},
                 shape = CutCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.azul)),
                 modifier = Modifier.padding(1.dp).weight(1f).fillMaxWidth().padding(7.dp)
@@ -481,28 +506,31 @@ fun Landscape(){
             {
                 Text(text = "=", fontSize = 20.sp, fontWeight = FontWeight.Bold)
             }}
-        Column(modifier = Modifier.weight(2f).fillMaxHeight().padding(5.dp),horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center){
-            Box(
+        Column(modifier = Modifier.weight(2f).fillMaxHeight().padding(10.dp),horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center){
+            Row(verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.End,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
+                    .padding(30.dp)
             ) {
                 Text(
-                    text = "0",
+                    text = screen.value,
                     fontSize = 36.sp,
                     fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.End,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp)
+                    textAlign = TextAlign.End
                 )
             }
         }
     }
 }
 
-fun clickAction(s: String, numberText: StringBuilder): StringBuilder {
-
+fun clickAction(numberString: String, numberText: StringBuilder): StringBuilder {
+    if (numberText.toString() == "0" && numberText.toString() != "π") {
+        numberText.clear().append(numberString)
+    }
+    else if (numberString != "π" && numberText.toString() != "π")
+        numberText.append(StringBuilder(numberString))
+    return numberText
 }
 
 
@@ -510,6 +538,6 @@ fun clickAction(s: String, numberText: StringBuilder): StringBuilder {
 @Composable
 fun CalculAppInterfacePreview() {
     TareaInterfazCalculadoraTheme {
-        Landscape()
+        CalculAppInterface()
     }
 }
